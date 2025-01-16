@@ -148,6 +148,10 @@ a {
     white-space: nowrap !important;
     color: rgb(33, 65, 35) !important;
   }
+  .font-p {
+    font-size: 15px;
+    font-weight: 500;
+  }
 }
 @media (min-width: 768px) {
   .h1-fonts {
@@ -155,6 +159,10 @@ a {
     font-weight: 700;
     white-space: nowrap !important;
     color: rgb(33, 65, 35) !important;
+  }
+  .font-p {
+    font-size: 30px;
+    font-weight: 700;
   }
 }
 .btn-close {
