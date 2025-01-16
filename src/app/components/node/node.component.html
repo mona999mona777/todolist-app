@@ -1,0 +1,270 @@
+<section id="body" class="girl-light py-5 text-main w-100">
+  <div class="py-5">
+    <div class="container widthnode my-5 shadow-lg rounded-5 p-3 bg-sign">
+      <div class="title">
+        <h2 class="text-main my-3 border-bottom border-secondary">
+          <b>{{ "node.todolist" | translate }} : </b>
+        </h2>
+      </div>
+      <div class="the-input my-2">
+        <!-- Button trigger modal -->
+        <input
+          readonly
+          type="text"
+          class="form-control widthinput mx-auto my-3"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          placeholder="{{ 'node.Add Node' | translate }}................"
+        />
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div id="addmodal" class="modal-content girl-light">
+              <div
+                class="d-flex justify-content-between align-items-center p-3 border-bottom border-secondary-subtle"
+              >
+                <h1
+                  class="modal-title fs-5 text-decoration-underline"
+                  id="exampleModalLabel"
+                >
+                  {{ "node.Add Node" | translate }}
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <form [formGroup]="addnode" (ngSubmit)="addnodes()">
+                <div class="modal-body">
+                  <div class="my-3">
+                    <input
+                      [ngClass]="{ 
+                      'is-valid':!addnode.get('title')?.errors && (addnode.get('title')?.touched ||
+                      addnode.get('title')?.dirty),
+                      'is-invalid':addnode.get('title')?.errors && (addnode.get('title')?.touched ||
+                      addnode.get('title')?.dirty),
+                   }"
+                      class="form-control"
+                      type="text"
+                      placeholder="{{
+                        'node.Enter Node Title' | translate
+                      }}.........."
+                      formControlName="title"
+                    />
+                    @if (addnode.get('title')?.errors &&
+                    (addnode.get('title')?.touched ||
+                    addnode.get('title')?.dirty)) {
+                    <div class="alert alert-danger">
+                      @if (addnode.get('title')?.getError('required')) {
+                      <p class="m-0">
+                        {{ "node.title is required" | translate }}.
+                      </p>
+                      }
+                    </div>
+                    }
+                  </div>
+                  <div class="my-3">
+                    <textarea
+                      [ngClass]="{ 
+                      'is-valid':!addnode.get('content')?.errors && (addnode.get('content')?.touched ||
+                      addnode.get('content')?.dirty),
+                      'is-invalid':addnode.get('content')?.errors && (addnode.get('content')?.touched ||
+                      addnode.get('content')?.dirty),
+                   }"
+                      class="form-control"
+                      rows="5"
+                      placeholder="{{
+                        'node.Enter Node Content' | translate
+                      }}........"
+                      formControlName="content"
+                    ></textarea>
+                    @if (addnode.get('content')?.errors &&
+                    (addnode.get('content')?.touched ||
+                    addnode.get('content')?.dirty)) {
+                    <div class="alert alert-danger">
+                      @if (addnode.get('content')?.getError('required')) {
+                      <p class="m-0">
+                        {{ "node.content is required" | translate }}.
+                      </p>
+                      }
+                    </div>
+                    }
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-danger">
+                    {{ "node.Save Node" | translate }}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="the-body">
+        @if (allUserNodes.length>0) {
+        <div class="row g-3 py-3">
+          @for (node of allUserNodes; track node._id) {
+          <div class="col-md-3">
+            <div
+              class="bg-white border border-secondary text-main p-3 rounded-3 overflow-hidden"
+            >
+              <h3>
+                <span class="text-decoration-underline text-main"
+                  >{{ "node.Title" | translate }} :</span
+                >
+              </h3>
+              <h4>{{ node.title }}</h4>
+              <h5 class="text-decoration-underline text-main">
+                {{ "node.subject" | translate }} :
+              </h5>
+              <p>{{ node.content }}</p>
+              <div
+                class="node-footer d-flex justify-content-between align-items-center"
+              >
+                <button
+                  (click)="setvalues(node)"
+                  type="button"
+                  class="btn btn-warning text-white"
+                  data-bs-toggle="modal"
+                  data-bs-target="#updateexampleModal"
+                >
+                  {{ "node.Update" | translate }}
+                </button>
+                <button (click)="deleteNode(node._id)" class="btn btn-danger">
+                  {{ "node.Delete" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+        } @if (allUserNodes.length==0) {
+        <div class="row">
+          <div class="col-4">
+            <img
+              class="w-100 rounded-circle border border-secondary border-3 shadow-lg"
+              src="./assets/images/logo.jpg"
+              alt="logo image for no nodes inside"
+            />
+          </div>
+          <div class="col-8 d-flex justify-content-center align-items-center">
+            <div
+              class="bg-gradient shadow-lg rounded-5 w-100 m-3 h-100 d-flex justify-content-center align-items-center"
+            >
+              <p class="text-main h2">
+                {{ "node.Create Your Node NOW" | translate }}
+                <i
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  class="fa-solid fa-arrow-up text-light border border-secondary border-3 p-1 rounded-2 shadow-lg"
+                ></i>
+              </p>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="body-update">
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="updateexampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content bg-warning-subtle">
+          <div
+            class="d-flex justify-content-between p-3 border-bottom border-secondary-subtle align-items-center"
+          >
+            <h1
+              class="modal-title fs-5 text-decoration-underline"
+              id="exampleModalLabel"
+            >
+              {{ "node.Update Node" | translate }}
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form [formGroup]="updatenode" (ngSubmit)="updateNode()">
+            <div class="modal-body">
+              <div class="my-3">
+                <input
+                  [ngClass]="{ 
+                  'is-valid':!updatenode.get('title')?.errors && (updatenode.get('title')?.touched ||
+                  updatenode.get('title')?.dirty),
+                  'is-invalid':updatenode.get('title')?.errors && (updatenode.get('title')?.touched ||
+                  updatenode.get('title')?.dirty),
+               }"
+                  class="form-control"
+                  type="text"
+                  placeholder="{{
+                    'node.Enter Node Title' | translate
+                  }}.........."
+                  formControlName="title"
+                />
+                @if (updatenode.get('title')?.errors &&
+                (updatenode.get('title')?.touched ||
+                updatenode.get('title')?.dirty)) {
+                <div class="alert alert-danger">
+                  @if (updatenode.get('title')?.getError('required')) {
+                  <p class="m-0">{{ "node.title is required" | translate }}.</p>
+                  }
+                </div>
+                }
+              </div>
+              <div class="my-3">
+                <textarea
+                  [ngClass]="{ 
+                  'is-valid':!updatenode.get('content')?.errors && (updatenode.get('content')?.touched ||
+                  updatenode.get('content')?.dirty),
+                  'is-invalid':updatenode.get('content')?.errors && (updatenode.get('content')?.touched ||
+                  updatenode.get('content')?.dirty),
+               }"
+                  class="form-control"
+                  rows="5"
+                  placeholder="{{
+                    'node.Enter Node Content' | translate
+                  }}........"
+                  formControlName="content"
+                ></textarea>
+                @if (updatenode.get('content')?.errors &&
+                (updatenode.get('content')?.touched ||
+                updatenode.get('content')?.dirty)) {
+                <div class="alert alert-danger">
+                  @if (updatenode.get('content')?.getError('required')) {
+                  <p class="m-0">
+                    {{ "node.content is required" | translate }}.
+                  </p>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-warning text-white">
+                {{ "node.Update Node" | translate }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

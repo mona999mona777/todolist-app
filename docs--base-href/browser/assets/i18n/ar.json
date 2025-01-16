@@ -1,0 +1,72 @@
+{
+    "navbar":{
+        "Home":"الرئيسية",
+        "signin":"تسجيل الدخول",
+        "signup":"إنشاء حساب",
+        "pen":"قلم",
+        "pepar":"ورقة"
+    },
+    "navnode":{
+        "Boy":"ولد",
+        "Girl":"بنت",
+        "Logout":"تسجيل الخروج",
+        "Lang":"اللغة",
+         "Arabic":"العربية",
+        "English":"الإنجليزية"
+    },
+    "login":{
+        "Signin":"تسجيل الدخول",
+        "email":"البريد الإلكتروني",
+        "email is required":"البريد الإلكتروني مطلوب",
+        "enter valid email":" البريد الإلكتروني غير صحيح",
+        "password":"إدخل كلمة المرور",
+        "password is required":"كلمة المرور مطلوبة",
+        "enter valid password":" كلمة مرورغير صحيحة"    },
+    "register":{
+        "Create Account":"إنشاء حساب",
+        "Full Name":"الأسم بالكامل",
+        "name is required":"الأسم مطلوب",
+        "name should be more or equal tha 2 chars":" يجب ان يتكون الأسم من حرفين علي الأقل",
+        "age":"العمر",
+        "age is required":"العمر مطلوب",
+        "age should be more or equal than 20 year":"يجب ان يتكون العمر عشرين عاما أو أكثر ",
+        "phone":"رقم التليفون",
+        "phone is required":" رقم التليفون مطلوب",
+        "enter valid phone":"إدخل رقم تليفون صحيح",
+        "singUp":"إنشاء"
+    },
+    "home":{
+    "Welcome to the Task Management App!":"مرحبًا بك في تطبيقنا لإدارة المهام، طريقك نحو التنظيم والإنتاجية!"
+    },
+    "footer":{
+        "get in touch":"للتواصل معنا",
+        "Organization Chart features a long and proud history of more than 100 years. Founded at the end of the XIXth century":"لنا تاريخ طويل في تطوير تطبيقات إدارة المهام, منذ عدة أعوام  .",
+        "Enter Email here to be updated. We promise not to send you spam":"إشترك ليصيلك كل جديد.",
+        "Send Your E-mail":"إدخل البريد الإلكتروني الخاص بك",
+        "Subscribe":"إشتراك",
+        "Al Hosary Street , New Alamein, Egypt":"ش. الحصري ,العالمين الجديدة,القاهرة",
+        "developed by":"تم تطويره بواسطة",
+        "Mariam Yasser":"مريم ياسر"
+    },
+    "node":{
+        "todolist":"قائمة المهام",
+        "Add Node":"إنشاء",
+        "Enter Node Title":"إدخل عنوان مهمتك الجديدة",
+        "title is required":"العنوان مطلوب",
+        "Enter Node Content":"إدخل عنوان مهمتك الجديدة",
+        "content is required":"المحتوي مطلوب",
+        "Save Node":"حفظ",
+        "Update":"تعديل",
+        "Delete":"حذف",
+        "Update Node":"تعديل",
+        "Create Your Node NOW":"إنشأ مهمتك الجديده.",
+        "Title":"العنوان",
+        "subject":"المحتوي"
+    },
+   "notfound":{
+        "Sorry, this page isn't available":"عذراّّ هذه الصفحة غير متاحة الان.",
+        "This link you follow may be broken, or the page may have been removed":"قد تكون تمت ازالتها او حذفت",
+        "go back to the previous page":"الرجوع الي الصفحة السابقة",
+        "Visit Our Help Center":"زور مركز المساعدة للتوصيح اكثر"
+    }
+}

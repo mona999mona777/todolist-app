@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/",
+    "/home",
+    "/node",
+    "/signin",
+    "/signup"
+  ]
+}

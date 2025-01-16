@@ -1,0 +1,16 @@
+@media (max-width: 992px) {
+  .widthnode {
+    width: 95%;
+  }
+  .widthinput {
+    width: 90%;
+  }
+}
+@media (min-width: 992px) {
+  .widthnode {
+    width: 75%;
+  }
+  .widthinput {
+    width: 50%;
+  }
+}

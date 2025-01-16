@@ -1,0 +1,77 @@
+<section class="footer text-main my-nav2">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="container-fluid pb-3">
+      <h3 class="footer-header py-3 h2">
+        {{ "footer.get in touch" | translate }}
+      </h3>
+      <p class="my-4">
+        {{
+          "footer.Organization Chart features a long and proud history of more than 100 years. Founded at the end of the XIXth century"
+            | translate
+        }}.
+      </p>
+
+      <p>
+        {{
+          "footer.Enter Email here to be updated. We promise not to send you spam"
+            | translate
+        }}!
+      </p>
+      <div class="row">
+        <form
+          class="col-md-8 my-3 d-flex justify-content-center align-items-center gap-3"
+        >
+          <input
+            class="form-control w-75"
+            type="email"
+            name="contact-us"
+            placeholder="{{ 'footer.Send Your E-mail' | translate }}"
+          />
+          <button type="submit" class="btn btn-danger">
+            {{ "footer.Subscribe" | translate }}
+          </button>
+        </form>
+        <ul
+          class="col-md-4 my-3 d-flex justify-content-center align-items-center"
+        >
+          <li class="ms-4">
+            <a><i class="fs-5 fa-brands fa-facebook"></i></a>
+          </li>
+          <li class="ms-4">
+            <a><i class="fs-5 fa-brands fa-instagram"></i></a>
+          </li>
+          <li class="ms-4">
+            <a><i class="fs-5 fa-brands fa-linkedin"></i></a>
+          </li>
+          <li class="ms-4">
+            <a><i class="fs-5 fa-brands fa-whatsapp"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="row g-3">
+        <li class="col-lg-4">
+          <i class="mx-2 fa-solid fa-location-dot"></i>828
+          {{ "footer.Al Hosary Street , New Alamein, Egypt" | translate }}" .
+        </li>
+        <li class="col-lg-4">
+          <i class="mx-2 fa-solid fa-phone"></i>+8 (800) 238 3597 22
+        </li>
+        <li class="col-lg-4">
+          <i class="mx-2 fa-solid fa-envelope"></i>
+          <span class="m-0 p-0 mail">
+            <b> HappyNote<i class="fa-solid fa-at"></i>gmail.com</b>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy-write shadow text-center border-top py-3">
+    <p>
+      ©Happy Note | {{ "footer.developed by" | translate }}
+      <b class="text-yellow fs-1 mx-2">
+        {{ "footer.Mariam Yasser" | translate }}</b
+      >
+    </p>
+  </div>
+</section>

@@ -1,0 +1,83 @@
+<section class="text-main py-5 my-5">
+  <div
+    class="theform container widthtitle p-3 rounded-5 shadow-lg bg-sign my-5"
+  >
+    <div class="title">
+      <h2 class="my-3 border-bottom border-secondary">
+        <b>{{ "login.Signin" | translate }}</b>
+      </h2>
+    </div>
+    <form [formGroup]="singIn" (ngSubmit)="singInfunction()">
+      <div class="my-2">
+        <label for="email">{{ "login.email" | translate }}</label>
+        <input
+          [ngClass]="{ 
+        'is-valid':!singIn.get('email')?.errors && (singIn.get('email')?.touched ||
+        singIn.get('email')?.dirty),
+        'is-invalid':singIn.get('email')?.errors && (singIn.get('email')?.touched ||
+        singIn.get('email')?.dirty),
+     }"
+          id="email"
+          type="email"
+          class="form-control"
+          formControlName="email"
+        />
+        @if (singIn.get('email')?.errors &&
+        (singIn.get('email')?.touched||singIn.get('email')?.dirty)){
+        <div class="alert alert-danger">
+          @if (singIn.get('email')?.getError('required')) {
+          <p class="m-0">{{ "login.email is required" | translate }}.</p>
+          } @else if (singIn.get('email')?.getError('email')) {
+          <p class="m-0">{{ "login.enter valid email" | translate }}.</p>
+          }
+        </div>
+        }
+      </div>
+      <div class="my-2">
+        <label for="password">{{ "login.password" | translate }}</label>
+        <input
+          [ngClass]="{ 
+        'is-valid':!singIn.get('password')?.errors && (singIn.get('password')?.touched ||
+        singIn.get('password')?.dirty),
+        'is-invalid':singIn.get('password')?.errors && (singIn.get('password')?.touched ||
+        singIn.get('password')?.dirty),
+     }"
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
+        @if (singIn.get('password')?.errors &&
+        (singIn.get('password')?.touched||singIn.get('password')?.dirty)) {
+        <div class="alert alert-danger">
+          @if (singIn.get('password')?.getError('required')) {
+          <p class="m-0">{{ "login.password is required" | translate }}.</p>
+          } @else if (singIn.get('password')?.getError('pattern')) {
+          <p class="m-0">{{ "login.enter valid password" | translate }}.</p>
+          }
+        </div>
+        }
+      </div>
+      <button
+        [class.ms-auto]="LangText()"
+        [class.me-auto]="!LangText()"
+        class="btn px-3 py-1 btn-color rounded-2 d-block"
+        type="submit"
+      >
+        {{ "login.Signin" | translate }} @if (isloading) {<span
+          class="fas fa-spin fa-spinner"
+        ></span
+        >}
+      </button>
+    </form>
+    @if (messgerror) {
+    <p class="text-center alert alert-danger w-100 mx-auto">
+      {{ messgerror }}
+    </p>
+    } @if (messsuccess) {
+    <p class="text-center alert alert-success w-50 mx-auto">
+      {{ messsuccess }}
+    </p>
+    }
+  </div>
+</section>

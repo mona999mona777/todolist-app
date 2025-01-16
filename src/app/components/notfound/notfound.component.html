@@ -1,0 +1,26 @@
+<section
+  class="bg-secondary-subtle bg-main d-flex justify-content-center align-items-center"
+>
+  <div class="text-center">
+    <h1>{{ "notfound.Sorry, this page isn't available" | translate }}</h1>
+    <p>
+      {{
+        "notfound.This link you follow may be broken, or the page may have been removed"
+          | translate
+      }}.
+    </p>
+    <img
+      class="w-75 my-3 rounded-3"
+      src="./assets/images/notfound.jpg"
+      alt="not found imag"
+    />
+    <P>
+      <a (click)="back()" class="text-primary mx-5 anc"
+        >{{ "notfound.go back to the previous page" | translate }}
+      </a>
+      <a class="text-primary mx-5 anc">{{
+        "notfound.Visit Our Help Center" | translate
+      }}</a></P
+    >
+  </div>
+</section>

@@ -1,0 +1,167 @@
+<section class="text-main my-5 py-5">
+  <div
+    class="theform container widthtitle p-3 rounded-5 shadow-lg bg-sign my-5"
+  >
+    <div class="title">
+      <h2 class="my-3 border-bottom border-secondary">
+        <b>{{ "register.Create Account" | translate }}</b>
+      </h2>
+    </div>
+    <form [formGroup]="singUp" (ngSubmit)="singUpfunction()">
+      <div class="my-2">
+        <label for="name">{{ "register.Full Name" | translate }}</label>
+        <input
+          [ngClass]="{ 
+      'is-valid':!singUp.get('name')?.errors && (singUp.get('name')?.touched ||
+      singUp.get('name')?.dirty),
+      'is-invalid':singUp.get('name')?.errors && (singUp.get('name')?.touched ||
+      singUp.get('name')?.dirty),
+   }"
+          id="name"
+          type="sec"
+          class="form-control"
+          formControlName="name"
+        />
+        @if (singUp.get('name')?.errors &&
+        (singUp.get('name')?.touched||singUp.get('name')?.dirty)) {
+        <div class="alert alert-danger">
+          @if (singUp.get('name')?.getError('required')) {
+          <p class="m-0">{{ "register.name is required" | translate }}.</p>
+          } @else if (singUp.get('name')?.getError('minlength')) {
+          <p class="m-0">
+            {{
+              "register.name should be more or equal tha 2 chars" | translate
+            }}.
+          </p>
+          }
+        </div>
+        }
+      </div>
+      <div class="my-2">
+        <label for="email">{{ "login.email" | translate }}</label>
+        <input
+          [ngClass]="{ 
+      'is-valid':!singUp.get('email')?.errors && (singUp.get('email')?.touched ||
+      singUp.get('email')?.dirty),
+      'is-invalid':singUp.get('email')?.errors && (singUp.get('email')?.touched ||
+      singUp.get('email')?.dirty),
+   }"
+          id="email"
+          type="email"
+          class="form-control"
+          formControlName="email"
+        />
+        @if (singUp.get('email')?.errors &&
+        (singUp.get('email')?.touched||singUp.get('email')?.dirty)){
+        <div class="alert alert-danger">
+          @if (singUp.get('email')?.getError('required')) {
+          <p class="m-0">{{ "login.email is required" | translate }}.</p>
+          } @else if (singUp.get('email')?.getError('email')) {
+          <p class="m-0">{{ "login.enter valid email" | translate }}.</p>
+          }
+        </div>
+        }
+      </div>
+      <div class="my-2">
+        <label for="password">{{ "login.password" | translate }}</label>
+        <input
+          [ngClass]="{ 
+      'is-valid':!singUp.get('password')?.errors && (singUp.get('password')?.touched ||
+      singUp.get('password')?.dirty),
+      'is-invalid':singUp.get('password')?.errors && (singUp.get('password')?.touched ||
+      singUp.get('password')?.dirty),
+   }"
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
+        @if (singUp.get('password')?.errors &&
+        (singUp.get('password')?.touched||singUp.get('password')?.dirty)) {
+        <div class="alert alert-danger">
+          @if (singUp.get('password')?.getError('required')) {
+          <p class="m-0">{{ "login.password is required" | translate }}.</p>
+          } @else if (singUp.get('password')?.getError('pattern')) {
+          <p class="m-0">{{ "login.enter valid password" | translate }}.</p>
+          }
+        </div>
+        }
+      </div>
+      <div class="my-2">
+        <label for="age">{{ "register.age" | translate }}</label>
+        <input
+          [ngClass]="{ 
+      'is-valid':!singUp.get('age')?.errors && (singUp.get('age')?.touched ||
+      singUp.get('age')?.dirty),
+      'is-invalid':singUp.get('age')?.errors && (singUp.get('age')?.touched ||
+      singUp.get('age')?.dirty),
+   }"
+          id="age"
+          type="number"
+          class="form-control"
+          formControlName="age"
+        />
+        @if (singUp.get('age')?.errors &&
+        (singUp.get('age')?.touched||singUp.get('age')?.dirty)) {
+        <div class="alert alert-danger">
+          @if (singUp.get('age')?.getError('required')) {
+          <p class="m-0">{{ "register.age is required" | translate }}.</p>
+          } @else if (singUp.get('age')?.getError('min')) {
+          <p class="m-0">
+            {{
+              "register.age should be more or equal than 20 year" | translate
+            }}.
+          </p>
+          }
+        </div>
+        }
+      </div>
+      <div class="my-2">
+        <label for="phone">{{ "register.phone" | translate }}</label>
+        <input
+          [ngClass]="{ 
+      'is-valid':!singUp.get('phone')?.errors && (singUp.get('phone')?.touched ||
+      singUp.get('phone')?.dirty),
+      'is-invalid':singUp.get('phone')?.errors && (singUp.get('phone')?.touched ||
+      singUp.get('phone')?.dirty),
+   }"
+          id="phone"
+          type="tel"
+          class="form-control"
+          formControlName="phone"
+        />
+        @if (singUp.get('phone')?.errors && (singUp.get('phone')?.touched
+        ||singUp.get('phone')?.dirty)) {
+        <div class="alert alert-danger">
+          @if (singUp.get('phone')?.getError('required')) {
+          <p class="m-0">{{ "register.phone is required" | translate }}.</p>
+          } @else if (singUp.get('phone')?.getError('pattern')) {
+          <p class="m-0">{{ "register.enter valid phone" | translate }}.</p>
+          }
+        </div>
+        }
+      </div>
+      <button
+        [class.ms-auto]="LangText()"
+        [class.me-auto]="!LangText()"
+        class="btn btn-secondary d-block"
+        type="submit"
+      >
+        {{ "register.singUp" | translate }} @if (isloading) {<span
+          class="fas fa-spin fa-spinner"
+        ></span
+        >}
+      </button>
+    </form>
+
+    @if (messgerror) {
+    <p class="text-center alert alert-danger w-100 mx-auto">
+      {{ messgerror }}
+    </p>
+    } @if (messsuccess) {
+    <p class="text-center alert alert-success w-50 mx-auto">
+      {{ messsuccess }}
+    </p>
+    }
+  </div>
+</section>

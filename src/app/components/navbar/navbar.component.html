@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg position-fixed top-0 w-100 py-3 my-nav">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">
+      <img
+        src="./assets/images/logo.jpg"
+        width="75px"
+        class="rounded-circle"
+        alt="logo image"
+      />
+      <b class="mx-1">{{ "navbar.pen" | translate }}</b>
+      <b><i class="fa-brands fa-d-and-d"></i> </b>
+      <b class="mx-1">{{ "navbar.pepar" | translate }}</b>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      #navbarSupportedContent
+      class="collapse navbar-collapse justify-content-end align-items-center"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-light"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ "navnode.Lang" | translate
+            }}<i class="fa-solid fa-language mx-1 text-secondary-emphasis"></i>
+          </a>
+          <ul class="dropdown-menu text-center">
+            <li
+              (click)="closeIteamModal()"
+              (click)="lang('ar')"
+              [class.bg-success-subtle]="_TranslateService.currentLang == 'ar'"
+            >
+              <a class="dropdown-item text-main">{{
+                "navnode.Arabic" | translate
+              }}</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li
+              (click)="closeIteamModal()"
+              (click)="lang('en')"
+              [class.bg-success-subtle]="_TranslateService.currentLang == 'en'"
+            >
+              <a class="dropdown-item text-main">{{
+                "navnode.English" | translate
+              }}</a>
+            </li>
+          </ul>
+        </li>
+        <li (click)="closeIteamModal()" class="nav-item">
+          <a
+            class="nav-link text-light"
+            routerLink="/home"
+            routerLinkActive="active"
+            >{{ "navbar.Home" | translate }}</a
+          >
+        </li>
+        <li (click)="closeIteamModal()" class="nav-item">
+          <a
+            class="nav-link text-light"
+            routerLink="/signin"
+            routerLinkActive="active"
+            >{{ "navbar.signin" | translate }}</a
+          >
+        </li>
+        <li (click)="closeIteamModal()" class="nav-item">
+          <a
+            class="nav-link text-light"
+            routerLink="/signup"
+            routerLinkActive="active"
+            >{{ "navbar.signup" | translate }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
