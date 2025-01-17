@@ -151,16 +151,18 @@
         </div>
         } @if (allUserNodes.length==0) {
         <div class="row">
-          <div class="col-4">
+          <div class="col-4 bg-danger">
             <img
               class="w-100 rounded-circle border border-secondary border-3 shadow-lg"
               src="./assets/images/logo.jpg"
               alt="logo image for no nodes inside"
             />
           </div>
-          <div class="col-8 d-flex justify-content-center align-items-center">
+          <div
+            class="col-8 d-flex justify-content-center align-items-center bg-danger-subtle m-0"
+          >
             <div
-              class="bg-gradient shadow-lg rounded-5 w-100 m-3 h-100 d-flex justify-content-center align-items-center"
+              class="bg-gradient shadow-lg rounded-5 w-100 h-100 p-1 text-center d-flex justify-content-center align-items-center"
             >
               <p class="text-main font-p">
                 {{ "node.Create Your Node NOW" | translate }}
